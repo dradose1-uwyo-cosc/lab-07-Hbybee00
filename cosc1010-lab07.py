@@ -1,13 +1,10 @@
-# Your Name Here
+# Hayden Bybee
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 10/28/24
+# Lab 07
+# Lab Section: 16
 # Sources, people worked with, help given to: 
-# your
-# comments
-# here
-
+# N/A
 
 # Prompt the user for an upper bound 
 # Write a while loop that gives the factorial of that upper bound
@@ -18,6 +15,28 @@
 # You will continue to prompt the user until a proper integer value is entered
 
 factorial = 1
+
+bound2 = input("Give a positive numeric value to find the factorial.")
+number = 0
+
+while bound2:
+    if bound2.isdigit():
+        break
+    else:
+        print("That isn't even a number, dawg. :(")
+        bound2 = input("Enter a positive numeric value please.")
+
+number = int(bound2)
+
+for integer in range(1,number):
+    if int(bound2) >= 0:
+        if number > integer:
+            factorial += factorial * integer
+#this else statement isn't really necessary because a negative number isn't accepted in the while loop before, but I already typed it out so it's staying here
+    else:
+        print("Not a valid numerical value.")
+        bound2 = input("A positive numerical value, please.")
+
 
 print(f"The result of the factorial based on the given bound is {factorial}")
 
@@ -38,6 +57,22 @@ print("*"*75)
 # The sum should start at 0 
 
 num_sum = 0 
+Isneg = False
+while True:
+    numbers = input("What number should we add? 'exit' to stop adding.")
+    if numbers.lower() == "exit":
+        break
+    if "-" in numbers:
+            numbers.replace("-"," ")
+            Isneg = True
+    elif "-" not in numbers:
+        Isneg = False
+    if numbers.isdigit():
+        numbers = int(numbers)
+        if Isneg == True:
+            numsum = numsum - number
+        else:
+            num_sum = num_sum + numbers
 
 print(f"Your final sum is {num_sum}")
 
@@ -59,4 +94,6 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
-        
+
+
+#Split, replace, isdigit, and input
