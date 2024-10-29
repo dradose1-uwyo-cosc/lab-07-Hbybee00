@@ -64,18 +64,25 @@ while True:
     numbers = input("What number should we add? 'exit' to stop adding.")
     if numbers.lower() == "exit":
         break
-    if "-" in numbers:
-        Isneg = True
-        numbers.replace("-","")
-    if numbers.isdigit():
-        numbers = int(numbers)
-        if Isneg == True:
-            num_sum += (numbers*-1)
-        elif Isneg == False:
-            num_sum += numbers
+    else:
+        str(numbers)
+        for number in numbers:
+            if number == "-":
+                del number
+                Isneg = True
+            else:
+                pass
+            if numbers.isdigit():
+                numbers = int(numbers)
+                if Isneg == True:
+                    num_sum += (numbers*-1)
+                elif Isneg == False:
+                    num_sum += numbers
+            else: 
+                print("That isn't a valid digit.")
 
 print(f"Your final sum is {num_sum}")
-
+#trying to make the negative numbers work properly has genuinely had me tweaking :)
 print("*"*75)
 # Now you will be creating a two operand calculator
 # It will support the following operators: +,-,/,*,% 
@@ -94,31 +101,50 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
-uncalculated = input("Please input something to calculate-- in operand operator operand format!")
 
-uncalclist = uncalculated.split(" ")
 
-uncalc1 = uncalclist[0]
-uncalc2 = uncalclist[1]
-uncalc3 = uncalclist[2]
+varuno = ""
 
-calculated = 0
+while True:
+    uncalculated = input("Please input something to calculate-- in operand operator operand format!")
+    for unc in uncalculated:
+        if unc == " ":
+            del unc
+        else:
+            varuno += unc + " "
+    uncalclist = varuno.split(" ")
+    uncalc1 = uncalclist[0]
+    uncalc2 = uncalclist[1]
+    uncalc3 = uncalclist[2]
+    if not uncalc1.isdigit():
+        print("Invalid first operand.")
+        pass
+    elif not uncalc3.isdigit():
+        print("Invalid second operand.")
+        pass
+    else:
+        break
 
 def calculator(operandone,operator,operandtwo):
     """This is a simple calculator that can use +, -, /, *, and %"""
+    calculated = 0
     if operator == "+":
         calculated = int(operandone) + int(operandtwo)
-    if operator == "-":
+        return calculated
+    elif operator == "-":
         calculated = int(operandone) - int(operandtwo)
-    if operator == "*":
+        return calculated
+    elif operator == "*":
         calculated = int(operandone) * int(operandtwo)
-    if operator == "/":
+        return calculated
+    elif operator == "/":
         calculated = int(operandone) / int(operandtwo)
-    if operator == "%":
+        return calculated
+    elif operator == "%":
         calculated = int(operandone) % int(operandtwo)
+        return calculated
+    else:
+        print("not valid calculation.")
 
-calculator(uncalc1,uncalc2,uncalc3)
+print(calculator(uncalc1,uncalc2,uncalc3))
 
-print(calculated)
-
-#Split, replace, isdigit, and input
