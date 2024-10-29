@@ -58,21 +58,21 @@ print("*"*75)
 
 num_sum = 0 
 Isneg = False
+
+
 while True:
     numbers = input("What number should we add? 'exit' to stop adding.")
     if numbers.lower() == "exit":
         break
     if "-" in numbers:
-            numbers.replace("-"," ")
-            Isneg = True
-    elif "-" not in numbers:
-        Isneg = False
+        Isneg = True
+        numbers.replace("-","")
     if numbers.isdigit():
         numbers = int(numbers)
         if Isneg == True:
-            numsum = numsum - number
-        else:
-            num_sum = num_sum + numbers
+            num_sum += (numbers*-1)
+        elif Isneg == False:
+            num_sum += numbers
 
 print(f"Your final sum is {num_sum}")
 
@@ -94,6 +94,31 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
+uncalculated = input("Please input something to calculate-- in operand operator operand format!")
 
+uncalclist = uncalculated.split(" ")
+
+uncalc1 = uncalclist[0]
+uncalc2 = uncalclist[1]
+uncalc3 = uncalclist[2]
+
+calculated = 0
+
+def calculator(operandone,operator,operandtwo):
+    """This is a simple calculator that can use +, -, /, *, and %"""
+    if operator == "+":
+        calculated = int(operandone) + int(operandtwo)
+    if operator == "-":
+        calculated = int(operandone) - int(operandtwo)
+    if operator == "*":
+        calculated = int(operandone) * int(operandtwo)
+    if operator == "/":
+        calculated = int(operandone) / int(operandtwo)
+    if operator == "%":
+        calculated = int(operandone) % int(operandtwo)
+
+calculator(uncalc1,uncalc2,uncalc3)
+
+print(calculated)
 
 #Split, replace, isdigit, and input
