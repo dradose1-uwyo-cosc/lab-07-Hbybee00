@@ -82,7 +82,7 @@ while True:
                 print("That isn't a valid digit.")
 
 print(f"Your final sum is {num_sum}")
-#trying to make the negative numbers work properly has genuinely had me tweaking :)
+#The negatives aren't negative-ing for some reason, I tried to make it work but I can't figure out how to fix it
 print("*"*75)
 # Now you will be creating a two operand calculator
 # It will support the following operators: +,-,/,*,% 
@@ -100,8 +100,6 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
-
-
 
 varuno = ""
 
